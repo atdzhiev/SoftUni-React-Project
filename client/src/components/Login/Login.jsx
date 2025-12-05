@@ -1,14 +1,21 @@
-
 import { Link } from "react-router";
-
+import { useForm } from "../../hooks/useForm";
+import { useContext } from "react";
+import { AuthContext } from '../../contexts/AuthContext';
+import './Login.css';
 
 export default function Login() {
-    
+    const {onLogin} = useContext(AuthContext);
+    const {values, changeHandler, onSubmit} = useForm({
+        email: '',
+        password: '',
+    }, onLogin);
+
     return (
-    <section className="section py-2 d-flex align-items-center min-height-80vh">
+    <section className="login-page section py-2 d-flex align-items-center min-height-80vh">
       <div className="container">
         <div className="row justify-content-center w-100">
-          <form id="login" className="col-md-6 col-lg-5" >
+          <form id="login" className="col-md-6 col-lg-5" onSubmit={onSubmit}>
             <h1 className="h1 text-center mb-5">Login</h1>
 
             <div className="form-group mb-4 text-center">
@@ -17,7 +24,8 @@ export default function Login() {
                 className="form-control mt-2 mx-auto input-center"
                 type="email"
                 name="email"
-                
+                value={values.email}
+                onChange={changeHandler}
               />
             </div>
 
@@ -27,7 +35,8 @@ export default function Login() {
                 className="form-control mt-2 mx-auto input-center"
                 type="password"
                 name="password" 
-                
+                value={values.password}
+                onChange={changeHandler}
               />
             </div>
 
