@@ -9,11 +9,7 @@ const Catalog = () => {
   return (
     <div className="catalog-wrapper py-5">
       <div className="d-flex">
-        
-
         <div className="catalog-main flex-grow-1 ms-3">
-         
-
           <div className="catalog-products row">
             {products.length ? (
               products.map(x => (

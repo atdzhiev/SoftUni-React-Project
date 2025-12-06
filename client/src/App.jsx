@@ -9,6 +9,7 @@ import Register from "./components/Register/Register"
 import Logout from "./components/Logout/Logout"
 import { CreatePage } from "./components/Create_Edit/Create"
 import Catalog from "./components/Catalog/Catalog"
+import Details from "./components/Details/Details"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/products/create" element={<CreatePage />} />
                 <Route path="/products" element={<Catalog />} />
+                <Route path="/products/details/:productId" element={<Details/>} />
              </Routes>
           </div>
       <Footer />

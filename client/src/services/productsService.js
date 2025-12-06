@@ -9,3 +9,10 @@ export const create = async (productData) => {
 
     return result;
 }
+
+export const getOne = async (productId) => {
+    console.log(productId)
+    const result = await request.get(`${url}/${productId}`);
+
+    return result;
+};
