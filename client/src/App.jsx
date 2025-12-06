@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact"
 import Login from "./components/Login/Login"
 import Register from "./components/Register/Register"
 import Logout from "./components/Logout/Logout"
+import { CreatePage } from "./components/Create_Edit/Create"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/logout" element={<Logout />} />
+                <Route path="/products/create" element={<CreatePage />} />
              </Routes>
           </div>
       <Footer />
