@@ -1,8 +1,22 @@
+import { useContext } from "react";
+import { Link } from "react-router";
+import { LovesContext } from "../../contexts/LovesContext";
 
-import { Link } from "react-router"; 
 
 const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
    
+  const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
+  const loveRecord = loves.find((l) => l.productId === _id);
+  const isLoved = !!loveRecord;
+
+  const handleLove = async () => {
+    if (isLoved) {
+      await onLoveDelete(loveRecord._id);
+    } else {
+      await onClickLove(_id);
+    }
+  };
+
   const cardImage = Array.isArray(images)
     ? images[mainImageIndex] || images[0]
     : images;
@@ -19,7 +33,10 @@ const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
           <ul className="list-unstyled d-flex flex-column align-items-center">
                 
              <li>
-                <button>
+                <button
+                onClick={handleLove}
+                className={`btn ${isLoved ? "btn-danger" : "btn-success"} text-white`}
+                >
                   <i className="fas fa-heart"></i>
                 </button>
               </li>

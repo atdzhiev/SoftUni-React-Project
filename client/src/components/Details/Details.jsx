@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {  useNavigate, useParams } from "react-router";
+import { LovesContext } from "../../contexts/LovesContext";
 import * as productsService from "../../services/productsService";
 import "./Details.css";
 
@@ -7,10 +8,13 @@ const Details = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
 
-  
+  const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
+
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [selectedOptions, setSelectedOptions] = useState({});
+
   
   useEffect(() => {
     productsService
@@ -30,6 +34,12 @@ const Details = () => {
     return <p>Loading design...</p>;
   } 
   
+  const loveEntry = loves.find((l) => l.productId === product._id);
+  const inWishlist = Boolean(loveEntry);
+
+  const handleOptionSelect = (optionKey, value) => {
+    setSelectedOptions((prev) => ({ ...prev, [optionKey]: value }));
+  };
 
   return (
     <section className="product-details-wrapper py-5">
@@ -107,6 +117,7 @@ const Details = () => {
                                   ? "btn-success"
                                   : "btn-outline-success"
                               }`}
+                            onClick={() => handleOptionSelect(opt.key, val)}
                             >
                               {val}
                             </button>
@@ -141,11 +152,21 @@ const Details = () => {
                         >
                           🛒 Add to Cart
                         </button>
+                        {inWishlist ? (
+                          <button
+                            className="btn btn-danger flex-fill"
+                            onClick={() => onLoveDelete(loveEntry._id)}
+                          >
+                            ❤️ Remove from Wishlist
+                          </button>
+                        ) : (
                           <button
                             className="btn btn-outline-danger flex-fill"
+                            onClick={() => onClickLove(product._id)}
                           >
                             🤍 Add to Wishlist
                           </button>
+                        )}
                         
                       </div>                   
             </div>
