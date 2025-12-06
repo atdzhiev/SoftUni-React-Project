@@ -1,4 +1,4 @@
-import { createContext, useState, useCallback, useMemo } from "react";
+import { createContext, useState, useCallback, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router";
 import * as productsService from "../services/productsService";
 
@@ -7,6 +7,10 @@ export const ProductsContext = createContext();
 export const ProductsProvider = ({ children }) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    productsService.getAll().then(setProducts)    
+  }, []);
   
   const onCreateProductSubmit = useCallback(async (data) => {
     try {

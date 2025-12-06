@@ -10,6 +10,11 @@ export const create = async (productData) => {
     return result;
 }
 
+export const getAll = async () => {
+  const result = await request.get(url);
+  return Object.values(result);
+};
+
 export const getOne = async (productId) => {
     console.log(productId)
     const result = await request.get(`${url}/${productId}`);
