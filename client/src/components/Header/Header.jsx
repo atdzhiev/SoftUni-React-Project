@@ -1,8 +1,12 @@
 import { Link } from "react-router";
-
+import WishlistDrawer from "../WishList/Wish";
+import { LovesContext } from "../../contexts/LovesContext";
+import { useContext, useState } from "react";
 
 export default function Header() {
- 
+   const [isWishlistOpen, setWishlistOpen] = useState(false);
+   const { loves } = useContext(LovesContext);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light shadow">
@@ -69,11 +73,11 @@ export default function Header() {
               <button
                 type="button"
                 className="nav-icon position-relative text-decoration-none btn btn-link p-0"
-                
+                 onClick={() => setWishlistOpen(true)}
               >
                 <i className="fa fa-heart text-dark mr-1" />
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  +4
+                  {loves.length>0 && loves.length}
                 </span>
               </button>
 
@@ -102,6 +106,9 @@ export default function Header() {
         </div>
       </nav>
 
+      {isWishlistOpen && (
+            <WishlistDrawer onClose={() => setWishlistOpen(false)} />
+          )}
      
     </>
   );
