@@ -1,4 +1,4 @@
-
+import "./ProductCreate.css"
 
 export const ProductForm = ({ mode, values, changeHandler, setFieldValue, onSubmit }) => {
   return (

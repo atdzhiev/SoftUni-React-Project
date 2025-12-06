@@ -1,0 +1,126 @@
+
+.add-product-wrapper {
+  background: linear-gradient(135deg, #fdfdfd, #fafafa);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+
+.page-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #14532d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  position: relative;
+}
+.page-title::after {
+  content: "✏️";
+  position: absolute;
+  right: 440px;
+  top: 0;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #198754;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+.card {
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+
+.preview-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+
+
+.preview-card {
+  flex: 0 0 auto;
+  width: 160px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.preview-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.preview-card img {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.preview-card img.main-selected {
+  border-color: #198754;
+  box-shadow: 0 0 10px rgba(25, 135, 84, 0.6);
+}
+
+
+.add-image-btn {
+  width: 80px;      
+  height: 80px;
+  font-size: 1.5rem;  
+  font-weight: bold;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0fdf4;
+  border: 2px dashed #198754;
+  color: #198754;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.add-image-btn:hover {
+  background: #dcfce7;
+  transform: rotate(2deg) scale(1.05);
+}
+
+
+.btn-secondary {
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+
+.form-control {
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control:focus {
+  border-color: #198754;
+  box-shadow: 0 0 6px rgba(25, 135, 84, 0.4);
+}
