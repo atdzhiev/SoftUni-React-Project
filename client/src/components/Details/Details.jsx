@@ -1,5 +1,6 @@
-import { useState, useEffect, useContext } from "react";
-import {  useNavigate, useParams } from "react-router";
+import { useState, useContext, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router";
+import { CartContext } from "../../contexts/CartContext";
 import { LovesContext } from "../../contexts/LovesContext";
 import * as productsService from "../../services/productsService";
 import "./Details.css";
@@ -8,14 +9,15 @@ const Details = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
 
+  const { onCartSubmit } = useContext(CartContext);
   const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
 
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  
   useEffect(() => {
     productsService
       .getOne(productId)
@@ -33,12 +35,27 @@ const Details = () => {
   if (!product) {
     return <p>Loading design...</p>;
   } 
+
   
   const loveEntry = loves.find((l) => l.productId === product._id);
   const inWishlist = Boolean(loveEntry);
 
   const handleOptionSelect = (optionKey, value) => {
     setSelectedOptions((prev) => ({ ...prev, [optionKey]: value }));
+  };
+
+  const handleAddToCart = () => {
+    onCartSubmit({
+      productId: product._id,
+      title: product.title,
+      image:
+        product.images?.[product.mainImageIndex] ||
+        product.images?.[0] ||
+        "",
+      price: product.price,
+      quantity,
+      options: selectedOptions,
+    });
   };
 
   return (
@@ -52,7 +69,7 @@ const Details = () => {
           >
             ← Back
           </button>
-        
+
         </div>
 
         <div className="row g-5">
@@ -62,6 +79,8 @@ const Details = () => {
                 src={mainImage}
                 alt={product.title}
                 className="main-image"
+                onClick={() => setIsFullscreen(true)}
+                style={{ cursor: "zoom-in" }}
               />
             </div>
             <div className="thumbnail-row mt-3 d-flex justify-content-center flex-wrap">
@@ -117,7 +136,7 @@ const Details = () => {
                                   ? "btn-success"
                                   : "btn-outline-success"
                               }`}
-                            onClick={() => handleOptionSelect(opt.key, val)}
+                              onClick={() => handleOptionSelect(opt.key, val)}
                             >
                               {val}
                             </button>
@@ -126,9 +145,8 @@ const Details = () => {
                       </div>
                     </div>
                   );
-                })}
-               
-                 
+                })}           
+                
                     <div className="quantity-control my-4 text-center">
                       <button
                         className="btn btn-outline-dark quantity-btn"
@@ -149,6 +167,7 @@ const Details = () => {
                 
                         <button
                           className="btn btn-success flex-fill"
+                          onClick={handleAddToCart}
                         >
                           🛒 Add to Cart
                         </button>
@@ -167,8 +186,7 @@ const Details = () => {
                             🤍 Add to Wishlist
                           </button>
                         )}
-                        
-                      </div>                   
+                      </div>          
             </div>
           </div>
         </div>
@@ -191,7 +209,18 @@ const Details = () => {
           )}
       </div>
 
-      
+      {isFullscreen && (
+        <div
+          className="fullscreen-overlay"
+          onClick={() => setIsFullscreen(false)}
+        >
+          <img
+            src={mainImage}
+            alt={product.title}
+            className="fullscreen-image"
+          />
+        </div>
+      )}
     </section>
   );
 };
