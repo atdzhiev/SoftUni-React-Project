@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router";
 import { LovesContext } from "../../contexts/LovesContext";
+import { CartContext } from "../../contexts/CartContext";
 
 
 const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
-   
   const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
+  const { onCartSubmit } = useContext(CartContext);
   const loveRecord = loves.find((l) => l.productId === _id);
   const isLoved = !!loveRecord;
 
@@ -31,21 +32,30 @@ const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
         />
         <div className="product-overlay d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100">
           <ul className="list-unstyled d-flex flex-column align-items-center">
-                
              <li>
                 <button
                 onClick={handleLove}
                 className={`btn ${isLoved ? "btn-danger" : "btn-success"} text-white`}
                 >
-                  <i className="fas fa-heart"></i>
+                  <i className={isLoved ? "fas fa-heart" : "far fa-heart"}></i>
                 </button>
               </li>
             <li>
-              <button className="btn btn-success text-white mt-2">
+              <button
+                className="btn btn-success text-white mt-2"
+                onClick={() =>
+                  onCartSubmit({
+                    productId: _id,
+                    title,
+                    price,
+                    image: cardImage,
+                    quantity: 1,
+                  })
+                }
+              >
                 <i className="fas fa-cart-plus" />
               </button>
             </li>
-            
             <li>
               <Link
                 className="btn btn-success text-white mt-2"
