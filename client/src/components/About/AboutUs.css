@@ -1,0 +1,98 @@
+.about-us {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #f9f9f9, #e6f7ff);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.about-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.about-content {
+  padding: 3rem 2rem;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #28a745;
+}
+
+.about-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.highlight-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 2rem;
+  text-align: center;
+  flex: 1 1 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.highlight-card i {
+  font-size: 2rem;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.highlight-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-footer {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.about-footer h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.btn-discover {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-discover:hover {
+  background: #218838;
+}
