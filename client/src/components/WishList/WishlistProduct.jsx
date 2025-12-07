@@ -6,6 +6,7 @@ const WishlistProduct = ({
   multipleSelected,
   toggleSelect,
   onViewDetails,
+  onAddToCart,
   onLoveDelete,
   onClose,
 }) => {
@@ -62,6 +63,13 @@ const WishlistProduct = ({
             className="cart-btn-small"
             onClick={(e) => {
               e.preventDefault();
+              onAddToCart({
+                productId: product._id,
+                title: product.title,
+                image: product.images?.[product.mainImageIndex] || product.images?.[0] || "",
+                price: product.price,
+                quantity: 1,
+              });
               onClose();
             }}
           >

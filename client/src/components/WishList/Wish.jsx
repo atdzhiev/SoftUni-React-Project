@@ -1,13 +1,15 @@
 import { useState, useContext } from "react";
 import { LovesContext } from "../../contexts/LovesContext";
-import { ProductsContext } from "../../contexts/ProductsContext";  
+import { ProductsContext } from "../../contexts/ProductsContext";
+import { CartContext } from "../../contexts/CartContext";  
 import { useNavigate } from "react-router";           
 import WishlistProduct from "./WishlistProduct";
 import "./WishlistDrawer.css";
 
 const WishlistDrawer = ({ onClose }) => {
   const { loves, onLoveDelete } = useContext(LovesContext);
-  const { products } = useContext(ProductsContext);      
+  const { products } = useContext(ProductsContext);
+  const { onCartSubmit } = useContext(CartContext);         
   const navigate = useNavigate();
 
   const [selectedItems, setSelectedItems] = useState([]);
@@ -27,7 +29,20 @@ const WishlistDrawer = ({ onClose }) => {
     );
   };
 
-  
+  const handleAddSelectedToCart = () => {
+    const selectedProducts = lovedProducts.filter((d) =>
+      selectedItems.includes(d._id)
+    );
+    selectedProducts.forEach((product) => onCartSubmit({
+       productId: product._id,
+       title: product.title,
+       image: product.images?.[product.mainImageIndex] || product.images?.[0] || "",
+       price: product.price,
+       quantity: 1,
+    })); 
+    setSelectedItems([]);
+    onClose();
+  };
 
   const handleViewDetails = (product) => {
     navigate(`products/details/${product._id}`);
@@ -57,7 +72,8 @@ const WishlistDrawer = ({ onClose }) => {
                     isSelected={isSelected}
                     multipleSelected={multipleSelected}
                     toggleSelect={toggleSelect}
-                    onViewDetails={handleViewDetails}        
+                    onViewDetails={handleViewDetails}  
+                    onAddToCart={onCartSubmit}        
                     onLoveDelete={onLoveDelete}
                     onClose={onClose} 
                   />
@@ -69,6 +85,7 @@ const WishlistDrawer = ({ onClose }) => {
               <div className="wishlist-actions">
                 <button
                   className="cart-btn-global"
+                  onClick={handleAddSelectedToCart}
                 >
                   Add {selectedItems.length} items to Cart
                 </button>
