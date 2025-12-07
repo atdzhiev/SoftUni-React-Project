@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router";
 import { LovesContext } from "../../contexts/LovesContext";
 import { CartContext } from "../../contexts/CartContext";
+import "./CatalogCard.css"
 
 
 const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
