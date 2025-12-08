@@ -3,9 +3,11 @@ import WishlistDrawer from "../WishList/Wish";
 import SearchModal from "../Search/SearchModal";
 import { LovesContext } from "../../contexts/LovesContext";
 import { CartContext } from "../../contexts/CartContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { useContext, useState } from "react";
 
 export default function Header() {
+   const { isAuthenticated, isAdmin } = useContext(AuthContext);
    const [isWishlistOpen, setWishlistOpen] = useState(false);
    const [isSearchOpen, setSearchOpen] = useState(false);
    const { loves } = useContext(LovesContext);
@@ -42,7 +44,7 @@ export default function Header() {
               <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                 <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                 <li className="nav-item"><Link className="nav-link" to="/products">Shop</Link></li>
-                <li className="nav-item"><Link className="nav-link" to="/products/create">Add Product</Link></li>
+               {isAdmin ? <li className="nav-item"><Link className="nav-link" to="/products/create">Add Product</Link></li> : null}
                 <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
                 <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
               </ul>
@@ -74,37 +76,35 @@ export default function Header() {
               </button>
 
             
-              <button
-                type="button"
-                className="nav-icon position-relative text-decoration-none btn btn-link p-0"
-                 onClick={() => setWishlistOpen(true)}
-              >
-                <i className="fa fa-heart text-dark mr-1" />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  {loves.length>0 && loves.length}
-                </span>
-              </button>
+             {isAuthenticated ?
+                <>
+                      <button
+                        type="button"
+                        className="nav-icon position-relative text-decoration-none btn btn-link p-0"
+                        onClick={() => setWishlistOpen(true)}
+                      >
+                        <i className="fa fa-heart text-dark mr-1" />
+                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                          {loves.length>0 && loves.length}
+                        </span>
+                      </button>
 
-              
-              <Link className="nav-icon position-relative text-decoration-none" to="/shoppingcart">
-                <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1" />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  {cart.length>0 && cart.length}
-                </span>
-              </Link>
+                      <Link className="nav-icon position-relative text-decoration-none" to="/shoppingcart">
+                        <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1" />
+                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                         {cart.length>0 && cart.length}
+                        </span>
+                      </Link>
 
-            
-              <Link className="nav-icon position-relative text-decoration-none" to="/login">
-                <i className="fa fa-fw fa-user text-dark mr-3" />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  +1
-                </span>
-              </Link>
-
-          
-              <Link className="nav-icon position-relative text-decoration-none" to="/logout">
-                <i className="fa fa-fw fa-sign-out-alt text-dark mr-3" />
-              </Link>
+                      <Link className="nav-i&con position-relative text-decoration-none" to="/logout">
+                        <i className="fa fa-fw fa-sign-out-alt text-dark mr-3" />
+                      </Link>
+                  </>
+                  :
+                      <Link className="nav-icon position-relative text-decoration-none" to="/login">
+                        <i className="fa fa-fw fa-user text-dark mr-3" />
+                      </Link>
+                  }
             </div>
           </div>
         </div>

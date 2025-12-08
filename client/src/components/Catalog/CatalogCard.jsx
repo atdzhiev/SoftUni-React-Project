@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { Link } from "react-router";
 import { LovesContext } from "../../contexts/LovesContext";
 import { CartContext } from "../../contexts/CartContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import "./CatalogCard.css"
 
 
+
 const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
+  const { isAuthenticated } = useContext(AuthContext);
   const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
   const { onCartSubmit } = useContext(CartContext);
   const loveRecord = loves.find((l) => l.productId === _id);
@@ -33,10 +36,12 @@ const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
         />
         <div className="product-overlay d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100">
           <ul className="list-unstyled d-flex flex-column align-items-center">
+             {isAuthenticated && (
+            <>
              <li>
                 <button
-                onClick={handleLove}
-                className={`btn ${isLoved ? "btn-danger" : "btn-success"} text-white`}
+                  onClick={handleLove}
+                  className={`btn ${isLoved ? "btn-danger" : "btn-success"} text-white`}
                 >
                   <i className={isLoved ? "fas fa-heart" : "far fa-heart"}></i>
                 </button>
@@ -57,6 +62,8 @@ const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
                 <i className="fas fa-cart-plus" />
               </button>
             </li>
+            </>
+            )}
             <li>
               <Link
                 className="btn btn-success text-white mt-2"

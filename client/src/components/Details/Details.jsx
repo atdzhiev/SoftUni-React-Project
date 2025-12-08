@@ -4,12 +4,13 @@ import { CartContext } from "../../contexts/CartContext";
 import { LovesContext } from "../../contexts/LovesContext";
 import * as productsService from "../../services/productsService";
 import { ProductsContext } from "../../contexts/ProductsContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import "./Details.css";
 
 const Details = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
-
+  const { isAuthenticated, isAdmin ,userId } = useContext(AuthContext);
   const { onCartSubmit } = useContext(CartContext);
   const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
   const { onDeleteClick } = useContext(ProductsContext);
@@ -42,6 +43,8 @@ const Details = () => {
   const loveEntry = loves.find((l) => l.productId === product._id);
   const inWishlist = Boolean(loveEntry);
 
+   const isOwner = product._ownerId === userId;
+
   const handleOptionSelect = (optionKey, value) => {
     setSelectedOptions((prev) => ({ ...prev, [optionKey]: value }));
   };
@@ -72,7 +75,8 @@ const Details = () => {
             ← Back
           </button>
 
-          <div className="admin-toolbar d-flex gap-3">
+          {isAdmin && isOwner &&(
+            <div className="admin-toolbar d-flex gap-3">
               <button
                 className="btn btn-warning"
                 onClick={() => navigate(`/products/edit/${product._id}`)}
@@ -81,12 +85,12 @@ const Details = () => {
               </button>
               <button
                 className="btn btn-danger"
-                onClick={() => onDeleteClick(product._id)}
+                onClick={() => openConfirm(() => onDeleteClick(product._id))}
               >
                 🗑 Delete
               </button>
             </div>
-
+          )}
         </div>
 
         <div className="row g-5">
@@ -163,47 +167,62 @@ const Details = () => {
                     </div>
                   );
                 })}           
-                
-                    <div className="quantity-control my-4 text-center">
+                 {isAuthenticated ? (
+                <>
+                  <div className="quantity-control my-4 text-center">
+                    <button
+                      className="btn btn-outline-dark quantity-btn"
+                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                    >
+                      −
+                    </button>
+                    <span className="quantity-value mx-3">{quantity}</span>
+                    <button
+                      className="btn btn-outline-dark quantity-btn"
+                      onClick={() => setQuantity((q) => q + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  <div className="actions d-flex gap-3">
+                    <button
+                      className="btn btn-success flex-fill"
+                      onClick={handleAddToCart}
+                    >
+                      🛒 Add to Cart
+                    </button>
+                    {inWishlist ? (
                       <button
-                        className="btn btn-outline-dark quantity-btn"
-                        onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                        className="btn btn-danger flex-fill"
+                        onClick={() => onLoveDelete(loveEntry._id)}
                       >
-                        −
+                        ❤️ Remove from Wishlist
                       </button>
-                      <span className="quantity-value mx-3">{quantity}</span>
+                    ) : (
                       <button
-                        className="btn btn-outline-dark quantity-btn"
-                        onClick={() => setQuantity((q) => q + 1)}
+                        className="btn btn-outline-danger flex-fill"
+                        onClick={() => onClickLove(product._id)}
                       >
-                        +
+                        🤍 Add to Wishlist
                       </button>
-                    </div>
-        
-                    <div className="actions d-flex gap-3">
-                
-                        <button
-                          className="btn btn-success flex-fill"
-                          onClick={handleAddToCart}
-                        >
-                          🛒 Add to Cart
-                        </button>
-                        {inWishlist ? (
-                          <button
-                            className="btn btn-danger flex-fill"
-                            onClick={() => onLoveDelete(loveEntry._id)}
-                          >
-                            ❤️ Remove from Wishlist
-                          </button>
-                        ) : (
-                          <button
-                            className="btn btn-outline-danger flex-fill"
-                            onClick={() => onClickLove(product._id)}
-                          >
-                            🤍 Add to Wishlist
-                          </button>
-                        )}
-                      </div>          
+                    )}
+                  </div>
+                </>
+              ) : (
+                <div className="w-100 text-center py-2">
+                  <span className="signin-message">
+                    Please{" "}
+                    <Link
+                      to="/login"
+                      className="fw-semibold text-decoration-none"
+                    >
+                      sign in
+                    </Link>{" "}
+                    to order.
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
