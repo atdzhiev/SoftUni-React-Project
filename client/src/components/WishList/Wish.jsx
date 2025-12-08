@@ -5,6 +5,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { useNavigate } from "react-router";           
 import WishlistProduct from "./WishlistProduct";
 import ConfirmModal from "../ConfrimModal/ConfirmModal";
+import ErrorContainer from "../Error/ErrorContainer";
 import "./WishlistDrawer.css";
 
 const WishlistDrawer = ({ onClose }) => {
@@ -76,6 +77,8 @@ const WishlistDrawer = ({ onClose }) => {
           <h4>Wishlist</h4>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
+
+        <ErrorContainer />
 
         {lovedProducts.length === 0 ? (
           <p className="empty-text">Your wishlist is empty.</p>

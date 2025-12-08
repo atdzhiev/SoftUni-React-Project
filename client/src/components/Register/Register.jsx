@@ -3,27 +3,30 @@ import { Link, useNavigate } from "react-router";
 import { useForm } from "../../hooks/useForm";
 import { useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
+import ErrorContainer from '../Error/ErrorContainer';
+import { useError } from '../../contexts/ErrorContext';
 
 export default function Register() {
   const navigate = useNavigate();
   const { onRegister } = useContext(AuthContext);
+  const { addError } = useError(); 
 
   const registerSubmitHandler = async (values) => {
     const { email, password, repeatPassword } = values;
 
     if (!email || !password) {
-      return alert('Email and password are required!');
+      return addError('Email and password are required!');
     }
 
     if (password !== repeatPassword) {
-      return alert('Password mismatch!');
+      return addError('Password mismatch!');
     }
 
     try {
       await onRegister({email, password,repeatPassword});
       navigate('/');
     } catch (err) {
-      alert(err.message);
+      addError(err.message);
     }
   };
 
@@ -39,6 +42,8 @@ export default function Register() {
         <div className="row justify-content-center w-100">
           <form id="register" className="col-md-6 col-lg-5" onSubmit={onSubmit}>
             <h1 className="h1 text-center mb-5">Register</h1>
+
+             <ErrorContainer />
 
             <div className="form-group mb-4 text-center">
               <label htmlFor="email" className="fw-semibold label-font">Email:</label>

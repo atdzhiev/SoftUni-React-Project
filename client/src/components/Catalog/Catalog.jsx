@@ -4,6 +4,7 @@ import SortCriteria from "./Sort";
 import FilterCriteria from "./Filter";
 import CatalogCard from "./CatalogCard";
 import Pagination from "../Pagination/Pagination";
+import ErrorContainer from "../Error/ErrorContainer";
 import "./Catalog.css"
 
 
@@ -19,13 +20,14 @@ const Catalog = () => {
         </div>
 
         <div className="catalog-main flex-grow-1 ms-3">
+          <ErrorContainer />
           <div className="catalog-sort d-flex justify-content-end mb-3">
             <SortCriteria />
           </div>
 
           <div className="catalog-products row">
             {products.length ? (
-              products.map(x => (
+              products.map((x) => (
                 <div className="col-md-3 mb-4" key={x._id}>
                   <CatalogCard {...x} />
                 </div>

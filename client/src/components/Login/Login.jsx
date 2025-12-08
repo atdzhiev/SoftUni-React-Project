@@ -2,14 +2,30 @@ import { Link } from "react-router";
 import { useForm } from "../../hooks/useForm";
 import { useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
+import { useError } from "../../contexts/ErrorContext";   
+import ErrorContainer from '../Error/ErrorContainer';
 import './Login.css';
 
 export default function Login() {
     const {onLogin} = useContext(AuthContext);
-    const {values, changeHandler, onSubmit} = useForm({
-        email: '',
-        password: '',
-    }, onLogin);
+    const { addError } = useError(); 
+    const { values, changeHandler, onSubmit } = useForm(
+    { email: '', password: '' },
+    async (formValues) => {
+      const { email, password } = formValues;
+
+      if (!email || !password) {
+        addError("Email and password are required!"); 
+        return;
+      }
+
+      try {
+        await onLogin(formValues);
+      } catch (err) {
+        addError(err.message); 
+      }
+    }
+  );
 
     return (
     <section className="login-page section py-2 d-flex align-items-center min-height-80vh">
@@ -18,6 +34,8 @@ export default function Login() {
           <form id="login" className="col-md-6 col-lg-5" onSubmit={onSubmit}>
             <h1 className="h1 text-center mb-5">Login</h1>
 
+             <ErrorContainer />
+             
             <div className="form-group mb-4 text-center">
               <label htmlFor="email" className="fw-semibold label-font">Email:</label>
               <input

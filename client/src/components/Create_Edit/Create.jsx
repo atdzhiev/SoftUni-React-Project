@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { useForm } from "../../hooks/useForm";
 import { ProductForm } from "./ProductForm";
+import ErrorContainer from "../Error/ErrorContainer";
 
 export const CreatePage = () => {
   const { onCreateProductSubmit } = useContext(ProductsContext);
@@ -26,6 +27,10 @@ export const CreatePage = () => {
   );
 
   return (
+    <div className="create-page-wrapper">
+     
+      <ErrorContainer />
+
     <ProductForm
       mode="create"
       values={values}
@@ -33,5 +38,6 @@ export const CreatePage = () => {
       setFieldValue={setFieldValue}
       onSubmit={onSubmit}
     />
+    </div>
   );
 };

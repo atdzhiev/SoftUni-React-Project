@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { useForm } from "../../hooks/useForm";
 import { ProductForm } from "./ProductForm";
+import ErrorContainer from "../Error/ErrorContainer";
 
 export const EditPage = () => {
   const { productId } = useParams();
@@ -37,6 +38,7 @@ export const EditPage = () => {
 
   return (
   <div className="edit-page-wrapper">
+    <ErrorContainer />
     <ProductForm
       mode="edit"
       values={values}

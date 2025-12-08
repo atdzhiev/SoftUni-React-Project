@@ -6,6 +6,8 @@ import * as productsService from "../../services/productsService";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import ConfirmModal from "../ConfrimModal/ConfirmModal";
+import ErrorContainer from "../Error/ErrorContainer";
+import { useError } from "../../contexts/ErrorContext";
 import "./Details.css";
 
 const Details = () => {
@@ -15,6 +17,7 @@ const Details = () => {
   const { onCartSubmit } = useContext(CartContext);
   const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
   const { onDeleteClick } = useContext(ProductsContext);
+  const { addError } = useError();
 
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState("");
@@ -34,12 +37,17 @@ const Details = () => {
         setMainImage(defaultMain);
       })
       .catch((err) => {
-        alert("Error loading design: " + err.message);
+        addError("Error loading design: " + err.message);
       });
-  }, [productId]);
+  }, [productId, addError]);
 
   if (!product) {
-    return <p>Loading design...</p>;
+    return (
+      <div className="container py-5">
+        <ErrorContainer />
+        <p>Loading design...</p>
+      </div>
+    );
   } 
 
   
@@ -86,6 +94,8 @@ const Details = () => {
   return (
     <section className="product-details-wrapper py-5">
       <div className="container">
+
+         <ErrorContainer />
 
         <div className="d-flex justify-content-between align-items-center mb-4">
           <button
