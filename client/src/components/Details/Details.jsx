@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router";
 import { CartContext } from "../../contexts/CartContext";
 import { LovesContext } from "../../contexts/LovesContext";
 import * as productsService from "../../services/productsService";
+import { ProductsContext } from "../../contexts/ProductsContext";
 import "./Details.css";
 
 const Details = () => {
@@ -11,6 +12,7 @@ const Details = () => {
 
   const { onCartSubmit } = useContext(CartContext);
   const { loves, onClickLove, onLoveDelete } = useContext(LovesContext);
+  const { onDeleteClick } = useContext(ProductsContext);
 
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState("");
@@ -69,6 +71,21 @@ const Details = () => {
           >
             ← Back
           </button>
+
+          <div className="admin-toolbar d-flex gap-3">
+              <button
+                className="btn btn-warning"
+                onClick={() => navigate(`/products/edit/${product._id}`)}
+              >
+                ✏️ Edit
+              </button>
+              <button
+                className="btn btn-danger"
+                onClick={() => onDeleteClick(product._id)}
+              >
+                🗑 Delete
+              </button>
+            </div>
 
         </div>
 

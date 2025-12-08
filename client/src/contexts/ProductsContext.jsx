@@ -26,14 +26,43 @@ export const ProductsProvider = ({ children }) => {
     }
   }, [navigate]);
 
+  const onEditProductSubmit = useCallback(async (data) => {
+    try {
+      if (Object.values(data).includes("")) {
+        throw new Error("All fields are required!");
+      }
+      const result = await productsService.edit(data._id, data);
+      setProducts((state) => state.map((x) => (x._id === data._id ? result : x)));
+      navigate(`/products/details/${data._id}`);
+    } catch (error) {
+      alert(error.message);
+    }
+  }, [navigate]);
+
+  const onDeleteClick = useCallback(async (productId) => {
+    const result = confirm("Are you sure you want to delete?");
+    if (!result) return;
+    try {
+      await productsService.deleteProduct(productId);
+      setProducts((state) => state.filter((x) => x._id !== productId));
+      navigate("/products");
+    } catch (error) {
+      alert(error.message);
+    }
+  }, [navigate]);
+
   const productsContextValues = useMemo(
     () => ({
       products,
       onCreateProductSubmit,
+      onEditProductSubmit,
+      onDeleteClick
       }),
     [
       products,
       onCreateProductSubmit,
+      onEditProductSubmit,
+      onDeleteClick
     ]
   );
 
