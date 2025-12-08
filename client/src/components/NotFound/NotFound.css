@@ -1,0 +1,65 @@
+.nf-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f4; /* soft gray-green background */
+  font-family: "Poppins", sans-serif;
+}
+
+.nf-card {
+  background: #ffffff;
+  border: 1px solid #d9dedb; /* light sage border */
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 480px;
+}
+
+.nf-code {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #6b8f71; /* muted olive green */
+  margin-bottom: 0.5rem;
+}
+
+.nf-message {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.nf-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.nf-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nf-primary {
+  background: #6b8f71; /* sage green */
+  color: #fff;
+}
+
+.nf-primary:hover {
+  background: #4e6b52; /* darker olive */
+}
+
+.nf-outline {
+  border: 1px solid #6b8f71;
+  color: #6b8f71;
+  background: #fff;
+}
+
+.nf-outline:hover {
+  background: #6b8f71;
+  color: #fff;
+}
