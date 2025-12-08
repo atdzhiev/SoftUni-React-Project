@@ -3,6 +3,7 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 import SortCriteria from "./Sort";
 import FilterCriteria from "./Filter";
 import CatalogCard from "./CatalogCard";
+import Pagination from "../Pagination/Pagination";
 import "./Catalog.css"
 
 
@@ -33,7 +34,9 @@ const Catalog = () => {
               <h2 className="catalog-empty">There are no products...</h2>
             )}
           </div>
-
+          <div className="catalog-pagination d-flex justify-content-center mt-3">
+            <Pagination />
+          </div>
           
         </div>
       </div>
