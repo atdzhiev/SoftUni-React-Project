@@ -12,6 +12,7 @@ import Catalog from "./components/Catalog/Catalog"
 import Details from "./components/Details/Details"
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
 import { EditPage } from "./components/Create_Edit/Edit"
+import OrderConfirmation from "./components/OrderConfirm/OrderConfirm"
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/products/details/:productId" element={<Details/>} />
                 <Route path="/shoppingcart" element={<ShoppingCart />}  />
                 <Route path="/products/edit/:productId" element={<EditPage />} />
+                <Route path="/shoppingcart/confirmation" element={<OrderConfirmation />} />
              </Routes>
           </div>
       <Footer />

@@ -67,7 +67,7 @@ const ShoppingCart = () => {
                   </div>
                 </div>
 
-                <div className="cart-col price">${item.price}</div>
+                <div className="cart-col price">{item.price} лв.</div>
 
                 <div className="cart-col quantity">
                   <button
@@ -88,7 +88,7 @@ const ShoppingCart = () => {
                 </div>
 
                 <div className="cart-col total">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  {(item.price * item.quantity).toFixed(2)} лв.
                 </div>
               </div>
             ))}
@@ -100,17 +100,31 @@ const ShoppingCart = () => {
         <h4>Summary</h4>
         <div className="summary-row">
           <span>Products cost:</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <span>{subtotal.toFixed(2)} лв.</span>
         </div>
         <div className="summary-row">
           <span>Delivery fee:</span>
-          <span>${deliveryFee.toFixed(2)}</span>
+          <span>{deliveryFee.toFixed(2)} лв.</span>
         </div>
         <div className="summary-row total">
           <span>Total:</span>
-          <span>${total.toFixed(2)}</span>
+          <span>{total.toFixed(2)} лв.</span>
         </div>
         <button className="checkout-btn"
+        disabled={cart.length === 0}
+        onClick={() => {
+            navigate("/shoppingcart/confirmation", {
+            state: {
+                order: {
+                  items: cart,
+                  total,
+                  createdAt: new Date().toISOString(),
+                },
+            },
+            })
+            clearCart();
+        }
+        }
          >Order Now</button>
                 </div>
               </div>

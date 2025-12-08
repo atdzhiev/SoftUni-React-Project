@@ -22,14 +22,22 @@ export const CartProvider = memo(({ children }) => {
     async (data) => {
       try {
         const newCartItem = await cartService.create(data, userId);
+         setCart((cart) => {
+        const existing = cart.find((x) => x.productId === newCartItem.productId);
 
-        setCart((cart) => {
-          const filtered = cart.filter((x) => x._id !== newCartItem._id);
-          return [...filtered, newCartItem];
-        });
+        if (existing) {
+          return cart.map((x) =>
+            x.productId === newCartItem.productId
+              ? { ...x, ...newCartItem, quantity: x.quantity + data.quantity }
+              : x
+          );
+        }
 
-        navigate("/shoppingcart");
-      } catch (err) {
+        return [...cart, { ...newCartItem, quantity: data.quantity }];
+      });
+
+      navigate("/shoppingcart");
+    }  catch (err) {
         alert(err.message);
       }
     },
