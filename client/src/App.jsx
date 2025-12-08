@@ -11,6 +11,7 @@ import { CreatePage } from "./components/Create_Edit/Create"
 import Catalog from "./components/Catalog/Catalog"
 import Details from "./components/Details/Details"
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
+import { EditPage } from "./components/Create_Edit/Edit"
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/products" element={<Catalog />} />
                 <Route path="/products/details/:productId" element={<Details/>} />
                 <Route path="/shoppingcart" element={<ShoppingCart />}  />
+                <Route path="/products/edit/:productId" element={<EditPage />} />
              </Routes>
           </div>
       <Footer />

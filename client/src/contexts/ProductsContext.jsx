@@ -51,18 +51,25 @@ export const ProductsProvider = ({ children }) => {
     }
   }, [navigate]);
 
+   const getProduct = useCallback(
+    (productId) => products.find((product) => product._id === productId),
+    [products]
+  );
+
   const productsContextValues = useMemo(
     () => ({
       products,
       onCreateProductSubmit,
       onEditProductSubmit,
-      onDeleteClick
+      onDeleteClick,
+      getProduct
       }),
     [
       products,
       onCreateProductSubmit,
       onEditProductSubmit,
-      onDeleteClick
+      onDeleteClick,
+      getProduct
     ]
   );
 
