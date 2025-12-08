@@ -1,9 +1,17 @@
-
+import { useState } from "react";
 import "./Contact.css";
+import ContactMessage from "../ContactMessage/ContactMessage";
 import { Link } from "react-router";
 
 export default function ContactPage() {
-  
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    e.target.reset();
+
+  };
 
   return (
     <section className="contact-page">
@@ -38,7 +46,7 @@ export default function ContactPage() {
 
         <div className="contact-form">
           <h2>Send Us a Message</h2>
-          <form >
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Name</label>
               <input type="text" placeholder="Your Name ✍️" required />
@@ -65,7 +73,10 @@ export default function ContactPage() {
         </div>
       </div>
 
-      
+      <ContactMessage
+        open={submitted}
+        onClose={() => setSubmitted(false)}
+      />
     </section>
   );
 }

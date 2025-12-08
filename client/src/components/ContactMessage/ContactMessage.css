@@ -1,0 +1,54 @@
+.contactmessage-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.2); /* subtle backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactmessage-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.contactmessage-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-home {
+  background: #2e8b57;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-home:hover {
+  background: #3cb371;
+}
+
+.btn-cancel {
+  background-color: #ccc;   /* solid background */
+  color: #333;
+  border: none;
+  padding: 10px 20px;       /* ensures background covers around text */
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;    /* makes background wrap correctly */
+  text-align: center;       /* centers text inside */
+  min-width: 80px;          /* optional: consistent width */
+}
+
+.btn-cancel:hover {
+  background-color: #bbb;
+}
