@@ -1,0 +1,45 @@
+.error-container {
+  background: rgb(245, 243, 244);
+  z-index: 9999;
+
+  border: 1px solid #f5c2c2;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 16px 0;
+  position: relative;
+  text-align: center;
+}
+
+.error-clear {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #a94442;
+}
+
+.error-item {
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 100%;
+
+}
+
+.error-item:last-child {
+  margin-bottom: 0;
+}
+
+.error-icon {
+  margin-right: 8px;
+  color: #d9534f;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #801413;
+}
