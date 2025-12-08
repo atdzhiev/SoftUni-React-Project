@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import SortCriteria from "./Sort";
 import CatalogCard from "./CatalogCard";
 import "./Catalog.css"
 
@@ -11,6 +12,11 @@ const Catalog = () => {
     <div className="catalog-wrapper py-5">
       <div className="d-flex">
         <div className="catalog-main flex-grow-1 ms-3">
+
+          <div className="catalog-sort d-flex justify-content-end mb-3">
+            <SortCriteria />
+          </div>
+          
           <div className="catalog-products row">
             {products.length ? (
               products.map(x => (
