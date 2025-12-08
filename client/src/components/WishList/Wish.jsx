@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback } from "react";
 import { LovesContext } from "../../contexts/LovesContext";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { CartContext } from "../../contexts/CartContext";  
 import { useNavigate } from "react-router";           
 import WishlistProduct from "./WishlistProduct";
+import ConfirmModal from "../ConfrimModal/ConfirmModal";
 import "./WishlistDrawer.css";
 
 const WishlistDrawer = ({ onClose }) => {
@@ -13,6 +14,8 @@ const WishlistDrawer = ({ onClose }) => {
   const navigate = useNavigate();
 
   const [selectedItems, setSelectedItems] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [selectedLoveId, setSelectedLoveId] = useState(null);
 
   const lovedProducts = loves
     .map((love) => {
@@ -48,6 +51,24 @@ const WishlistDrawer = ({ onClose }) => {
     navigate(`products/details/${product._id}`);
   };
 
+   const handleDeleteClick = useCallback((loveId) => {
+    setSelectedLoveId(loveId);
+    setOpen(true);
+  }, []);
+
+  const handleConfirmDelete = () => {
+    if (selectedLoveId) {
+      onLoveDelete(selectedLoveId);
+    }
+    setOpen(false);
+    setSelectedLoveId(null);
+  };
+
+  const handleCancelDelete = () => {
+    setOpen(false);
+    setSelectedLoveId(null);
+  };
+
   return (
     <div className="wishlist-overlay" onClick={onClose}>
       <div className="wishlist-drawer" onClick={(e) => e.stopPropagation()}>
@@ -74,7 +95,7 @@ const WishlistDrawer = ({ onClose }) => {
                     toggleSelect={toggleSelect}
                     onViewDetails={handleViewDetails}  
                     onAddToCart={onCartSubmit}        
-                    onLoveDelete={onLoveDelete}
+                    onLoveDelete={() => handleDeleteClick(product.loveId)}
                     onClose={onClose} 
                   />
                 );
@@ -94,6 +115,12 @@ const WishlistDrawer = ({ onClose }) => {
           </>
         )}
       </div>
+      <ConfirmModal
+        open={open}
+        message="Are you sure you want to remove this item from your wishlist?"
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
     </div>
   );
 };

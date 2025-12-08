@@ -59,8 +59,7 @@ export const CartProvider = memo(({ children }) => {
   }, []);
 
   const onCartDelete = useCallback(async (cartItemId) => {
-    const result = window.confirm("Are you sure you want to remove the product?");
-    if (!result) return;
+    
     
     try {
       await cartService.remove(cartItemId);

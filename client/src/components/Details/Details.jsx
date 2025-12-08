@@ -5,6 +5,7 @@ import { LovesContext } from "../../contexts/LovesContext";
 import * as productsService from "../../services/productsService";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { AuthContext } from "../../contexts/AuthContext";
+import ConfirmModal from "../ConfrimModal/ConfirmModal";
 import "./Details.css";
 
 const Details = () => {
@@ -20,6 +21,8 @@ const Details = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [confirmAction, setConfirmAction] = useState(null);
 
   useEffect(() => {
     productsService
@@ -62,6 +65,23 @@ const Details = () => {
       options: selectedOptions,
     });
   };
+
+  const openConfirm = (action) => {
+    setConfirmAction(() => action);
+    setConfirmOpen(true);
+  };
+
+  const handleConfirm = () => {
+    if (confirmAction) confirmAction();
+    setConfirmOpen(false);
+    setConfirmAction(null);
+  };
+
+  const handleCancel = () => {
+    setConfirmOpen(false);
+    setConfirmAction(null);
+  };
+
 
   return (
     <section className="product-details-wrapper py-5">
@@ -257,6 +277,12 @@ const Details = () => {
           />
         </div>
       )}
+      <ConfirmModal
+        open={confirmOpen}
+        message="Are you sure you want to delete the product?"
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
     </section>
   );
 };

@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { CartContext } from "../../contexts/CartContext";
+import ConfirmModal from "../ConfrimModal/ConfirmModal";
 import "./ShoppingCart.css";
 
 
@@ -8,6 +9,26 @@ const ShoppingCart = () => {
   const { cart, onCartEdit, onCartDelete, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
+  const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleDeleteClick = useCallback((cartItemId) => {
+    setSelectedItem(cartItemId);
+    setOpen(true); 
+  }, []);
+
+  const handleConfirmDelete = async () => {
+    if (selectedItem) {
+      onCartDelete(selectedItem);
+    }
+    setOpen(false);
+    setSelectedItem(null);
+  };
+
+  const handleCancelDelete = () => {
+    setOpen(false);
+    setSelectedItem(null);
+  };
 
   let subtotal = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -40,7 +61,7 @@ const ShoppingCart = () => {
                 <div className="cart-col details">
                   <button
                     className="remove-btn"
-                    onClick={() => onCartDelete(item._id)}
+                    onClick={() => handleDeleteClick(item._id)}
                   >
                     ✕
                   </button>
@@ -127,6 +148,12 @@ const ShoppingCart = () => {
         }
          >Order Now</button>
                 </div>
+                <ConfirmModal
+                  open={open}
+                  message="Are you sure you want to remove the product?"
+                  onConfirm={handleConfirmDelete}
+                  onCancel={handleCancelDelete}
+                />
               </div>
             );
           };

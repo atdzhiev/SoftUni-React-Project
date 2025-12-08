@@ -31,12 +31,12 @@ export const LovesProvider = memo(({
     }, []);
 
     const onLoveDelete = useCallback(async (loveId) => {
-        const result = confirm("Are you sure you want to remove product?")
+        
         try {
-            if(result) {
+           
                 await lovesService.remove(loveId);
                 setLoves(state => state.filter(x => x._id !== loveId));
-            }
+           
         } catch (error) {
             return alert(error.message);
         }

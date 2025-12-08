@@ -1,0 +1,47 @@
+
+
+.modal-box.greenish {
+  background: #f8f8f8;        
+  border: 2px solid #2e8b57; 
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: fixed;            
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-confirm {
+  background: #2e8b57;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-confirm:hover {
+  background: #3cb371; 
+}
+
+.btn-cancel {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #bbb;
+}
