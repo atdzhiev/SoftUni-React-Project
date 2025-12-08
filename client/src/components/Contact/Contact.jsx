@@ -1,79 +1,71 @@
-export default function Contact(){
-    return (
-       <>
-  {/* Start Content Page */}
-  <div className="container-fluid bg-light py-5">
-    <div className="col-md-6 m-auto text-center">
-      <h1 className="h1">Contact Us</h1>
-      <p>
-        Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet.
-      </p>
-    </div>
-  </div>
-  {/* Start Map */}
-  <div id="mapid" style={{ width: "100%", height: 300 }} />
-  {/* Ena Map */}
-  {/* Start Contact */}
-  <div className="container py-5">
-    <div className="row py-5">
-      <form className="col-md-9 m-auto" method="post" role="form">
-        <div className="row">
-          <div className="form-group col-md-6 mb-3">
-            <label htmlFor="inputname">Name</label>
-            <input
-              type="text"
-              className="form-control mt-1"
-              id="name"
-              name="name"
-              placeholder="Name"
-            />
-          </div>
-          <div className="form-group col-md-6 mb-3">
-            <label htmlFor="inputemail">Email</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              id="email"
-              name="email"
-              placeholder="Email"
-            />
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="inputsubject">Subject</label>
-          <input
-            type="text"
-            className="form-control mt-1"
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="inputmessage">Message</label>
-          <textarea
-            className="form-control mt-1"
-            id="message"
-            name="message"
-            placeholder="Message"
-            rows={8}
-            defaultValue={""}
-          />
-        </div>
-        <div className="row">
-          <div className="col text-end mt-2">
-            <button type="submit" className="btn btn-success btn-lg px-3">
-              Lets Talk
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  {/* End Contact */}
-</>
+
+import "./Contact.css";
+import { Link } from "react-router";
+
+export default function ContactPage() {
+  
+
+  return (
+    <section className="contact-page">
+      <div className="contact-hero">
+        <h1>Let’s Connect ✏️</h1>
+        <p>
+          Questions, ideas, or just a friendly hello — we’re always excited to hear from you!
+        </p>
+      </div>
+
+      <div className="contact-container">
+        <div className="contact-info">
+          <h2>Visit Us</h2>
+          <p><i className="fas fa-map-marker-alt"></i> 123 Creative Lane, Sofia</p>
+          <p><i className="fas fa-phone"></i> +359 888 888 888</p>
+          <p><i className="fas fa-envelope"></i> info@state.com</p>
+          <p><i className="fas fa-clock"></i> Mon–Fri: 9:00 – 18:00</p>
+          <div className="map-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5865.715820463563!2d23.313818996023176!3d42.68555208465768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sbg!2sbg!4v1765182192493!5m2!1sbg!2sbg" 
+            width="600" 
+            height="300" 
+            style= {{ border: 0 }} 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
 
 
-    )
+            </iframe>
+
+          </div>
+        </div>
+
+        <div className="contact-form">
+          <h2>Send Us a Message</h2>
+          <form >
+            <div className="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Your Name ✍️" required />
+            </div>
+            <div className="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="Your Email 📧" required />
+            </div>
+            <div className="form-group">
+              <label>Message</label>
+              <textarea placeholder="Write your message..." rows="5" required></textarea>
+            </div>
+            <button type="submit" className="btn-submit">Send Message 🚀</button>
+          </form>
+        </div>
+      </div>
+
+      <div className="contact-footer">
+        <h3>Follow Our Creative Journey</h3>
+        <div className="social-icons">
+          <Link to="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></Link>
+          <Link to="https://www.instagram.com/"><i className="fab fa-instagram"></i></Link>
+          <Link to="https://x.com/"><i className="fab fa-twitter"></i></Link>
+        </div>
+      </div>
+
+      
+    </section>
+  );
 }
