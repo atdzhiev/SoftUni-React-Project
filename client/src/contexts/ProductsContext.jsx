@@ -7,13 +7,14 @@ import {
 } from "react";
 import { useNavigate } from "react-router";
 import * as productsService from "../services/productsService";
-
+import { useError } from "./ErrorContext"; 
 
 export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const navigate = useNavigate();
-  
+  const { addError } = useError();
+
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [action, setAction] = useState("");
@@ -29,7 +30,7 @@ export const ProductsProvider = ({ children }) => {
         setTotalProducts(count);
         setMaxPage(Math.max(1, Math.ceil(count / 12)));
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => addError(err.message));
   }, []);
 
   
@@ -38,7 +39,7 @@ export const ProductsProvider = ({ children }) => {
       productsService
         .getAllByPage(page)
         .then(setProducts)
-        .catch((err) => alert(err.message));
+        .catch((err) => addError(err.message));
 
       productsService
         .getAll()
@@ -47,7 +48,7 @@ export const ProductsProvider = ({ children }) => {
           setTotalProducts(count);
           setMaxPage(Math.max(1, Math.ceil(count / 12)));
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => addError(err.message));
       return;
     }
 
@@ -84,7 +85,7 @@ export const ProductsProvider = ({ children }) => {
           setTotalProducts(sorted.length);
           setMaxPage(Math.max(1, Math.ceil(sorted.length / 12)));
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => addError(err.message));
     } else if (method === "filter") {
       productsService
         .filter(page, criteria, match)
@@ -93,7 +94,7 @@ export const ProductsProvider = ({ children }) => {
           setTotalProducts(data.length);
           setMaxPage(Math.max(1, Math.ceil(data.length / 12)));
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => addError(err.message));
     }
   }, [page, action]);
 
@@ -118,10 +119,10 @@ export const ProductsProvider = ({ children }) => {
 
         navigate("/products");
       } catch (error) {
-        alert(error.message);
+        addError(error.message);
       }
     },
-    [navigate]
+    [navigate, addError]
   );
 
   const onEditProductSubmit = useCallback(
@@ -136,10 +137,10 @@ export const ProductsProvider = ({ children }) => {
         );
         navigate(`/products/details/${data._id}`);
       } catch (error) {
-        alert(error.message);
+        addError(error.message);
       }
     },
-    [navigate]
+    [navigate,addError]
   );
 
   const onDeleteClick = useCallback(
@@ -149,10 +150,10 @@ export const ProductsProvider = ({ children }) => {
         setProducts((state) => state.filter((x) => x._id !== productId));
         navigate("/products");
       } catch (error) {
-        alert(error.message);
+        addError(error.message);
       }
     },
-    [navigate]
+    [navigate,addError]
   );
 
   const onOptionChangeHandler = useCallback((value) => {

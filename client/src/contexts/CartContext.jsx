@@ -2,21 +2,31 @@ import {  createContext,  memo,  useCallback,  useContext,  useEffect,  useMemo,
 import { useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext";
 import * as cartService from "../services/cartService";
+import { useError } from "./ErrorContext";
 
 export const CartContext = createContext();
 
 export const CartProvider = memo(({ children }) => {
   const navigate = useNavigate();
   const { userId } = useContext(AuthContext);
+  const { addError } = useError();
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     if (userId) {
-      cartService.getOwnCart(userId).then((result) => {
+      cartService.getOwnCart(userId)
+      .then((result) => {
         setCart(result);
-      });
+      })
+      .catch((err) => {
+          if (err.code === 404) {
+            setCart([]);
+          } else {
+            addError(err.message);
+          }
+        });
     }
-  }, [userId]);
+  }, [userId, addError]);
 
   const onCartSubmit = useCallback(
     async (data) => {
@@ -38,10 +48,10 @@ export const CartProvider = memo(({ children }) => {
 
       navigate("/shoppingcart");
     }  catch (err) {
-        alert(err.message);
+        addError(err.message);
       }
     },
-    [navigate, userId]
+    [navigate, userId, addError]
   );
 
   const onCartEdit = useCallback(async (cartItemId, quantity) => {
@@ -54,9 +64,9 @@ export const CartProvider = memo(({ children }) => {
         )
       );
     } catch (err) {
-      alert(err.message);
+      addError(err.message);
     }
-  }, []);
+  }, [addError]);
 
   const onCartDelete = useCallback(async (cartItemId) => {
     
@@ -65,9 +75,9 @@ export const CartProvider = memo(({ children }) => {
       await cartService.remove(cartItemId);
       setCart((state) => state.filter((x) => x._id !== cartItemId));
     } catch (err) {
-      alert(err.message);
+      addError(err.message);
     }
-  }, []);
+  }, [addError]);
 
   const clearCart = () => {
   setCart([]); 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 import * as authService from '../services/authService';
+import { useError } from "../contexts/ErrorContext"
 
 export const AuthContext = createContext();
 
@@ -11,6 +12,7 @@ export const AuthProvider = ({
 }) => {
     const navigate = useNavigate();
     const [user, setUser] = useLocalStorage("user",{});
+     const { addError } = useError(); 
 
     const isAdmin = Boolean(user.role === "admin");
     
@@ -19,7 +21,8 @@ export const AuthProvider = ({
         try {
             newUser = await authService.login(values);
         } catch (error) {
-            return alert(error.message);
+            addError(error.message); 
+            return;
         }
         setUser(newUser);
         navigate('/products');
@@ -29,6 +32,7 @@ export const AuthProvider = ({
         try {
             await authService.logout();
         } catch (error) {
+            addError(error.message);
         }
         setUser({});
         localStorage.clear();
@@ -46,7 +50,8 @@ export const AuthProvider = ({
             newUser = await authService.register(registerData);
             
         } catch (error) {
-            return alert(error.message);
+            addError(error.message); 
+            return;
         }
         setUser(newUser);
         navigate('/products');
@@ -64,10 +69,8 @@ export const AuthProvider = ({
     }
     
     return (
-        <>
             <AuthContext.Provider value={authContextValues}>
                 {children}
             </AuthContext.Provider>
-        </>
     );
 };
