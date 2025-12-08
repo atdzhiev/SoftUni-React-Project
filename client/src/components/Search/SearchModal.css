@@ -1,0 +1,74 @@
+.search-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+
+.search-modal-dialog {
+  background: #fff;
+  border-radius: 10px;
+  width: 600px;
+  max-width: 92vw;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.search-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-title {
+  margin: 0;
+  flex: 1;
+}
+
+.close-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search-form {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+}
+
+.search-form input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.search-form button {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  background: #198754;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-hint {
+  padding: 0 16px 16px;
+  color: #6c757d;
+  font-style: italic;
+}

@@ -1,11 +1,15 @@
 import { Link } from "react-router";
 import WishlistDrawer from "../WishList/Wish";
+import SearchModal from "../Search/SearchModal";
 import { LovesContext } from "../../contexts/LovesContext";
+import { CartContext } from "../../contexts/CartContext";
 import { useContext, useState } from "react";
 
 export default function Header() {
    const [isWishlistOpen, setWishlistOpen] = useState(false);
+   const [isSearchOpen, setSearchOpen] = useState(false);
    const { loves } = useContext(LovesContext);
+   const { cart } = useContext(CartContext);
 
   return (
     <>
@@ -64,7 +68,7 @@ export default function Header() {
               <button
                 type="button"
                 className="nav-icon d-none d-lg-inline btn btn-link p-0"
-                
+                onClick={() => setSearchOpen(true)}
               >
                 <i className="fa fa-fw fa-search text-dark mr-2" />
               </button>
@@ -85,7 +89,7 @@ export default function Header() {
               <Link className="nav-icon position-relative text-decoration-none" to="/shoppingcart">
                 <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1" />
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  0
+                  {cart.length>0 && cart.length}
                 </span>
               </Link>
 
@@ -106,6 +110,7 @@ export default function Header() {
         </div>
       </nav>
 
+      {isSearchOpen && <SearchModal onClose={() => setSearchOpen(false)} />}
       {isWishlistOpen && (
             <WishlistDrawer onClose={() => setWishlistOpen(false)} />
           )}
