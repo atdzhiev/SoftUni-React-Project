@@ -28,7 +28,10 @@ const WishlistProduct = ({
             onClose();
           }}
         >
-          <img src={product.images} alt={product.title} className="item-image" />
+          <img 
+          src={product.images?.[product.mainImageIndex] || product.images?.[0] || ""}
+          alt={product.title}
+          className="item-image" />
         </div>
       </div>
 
