@@ -1,4 +1,4 @@
-/* Cart Page Layout */
+
 .cart-page {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -9,7 +9,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* Products Section */
+
 .cart-products {
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
   font-style: italic;
 }
 
-/* Header + Item Rows */
+
 .cart-header-row,
 .cart-item-row {
   display: grid;
@@ -66,7 +66,7 @@
   box-shadow: 0 10px 18px rgba(0,0,0,0.12);
 }
 
-/* Product Details */
+
 .cart-col.details {
   display: flex;
   align-items: center;
@@ -86,20 +86,20 @@
 }
 
 .product-title {
-  font-size: 0.9rem;       /* smaller size */
+  font-size: 0.9rem;       
   font-weight: 500;
-  color: #14532d;          /* brand accent */
-  text-decoration: none;   /* remove underline */
+  color: #14532d;          
+  text-decoration: none;  
   transition: color 0.2s ease;
 }
 
 .product-title:hover {
-  color: #0d6efd;          /* highlight on hover */
+  color: #0d6efd;          
   text-decoration: underline;
 }
 
 
-/* Remove Button */
+
 .remove-btn {
   background: none;
   border: none;
@@ -113,14 +113,13 @@
   transform: scale(1.2);
 }
 
-/* Price Column */
 .cart-col.price {
   color: #444;
   text-align: left;
   font-weight: 500;
 }
 
-/* Quantity Controls */
+
 .cart-col.quantity {
   display: flex;
   align-items: center;
@@ -146,13 +145,13 @@
   transform: scale(1.1);
 }
 
-/* Total Column */
+
 .cart-col.total {
   font-weight: 700;
   color: #14532d;
 }
 
-/* Summary Section */
+
 .cart-summary {
   border: none;
   border-radius: 14px;
@@ -180,7 +179,7 @@
   padding-top: 0.75rem;
 }
 
-/* Checkout Button */
+
 .checkout-btn {
   background: linear-gradient(135deg, #198754, #14532d);
   border: none;

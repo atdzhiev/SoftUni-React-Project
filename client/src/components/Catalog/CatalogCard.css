@@ -1,9 +1,8 @@
-/* Base card */
 .catalog-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; /* equal height in grid */
+  height: 100%; 
   border: none;
   border-radius: 14px;
   overflow: hidden;
@@ -16,12 +15,12 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.12);
 }
 
-/* Product image */
+
 .catalog-card .card-img {
   width: 100%;
-  height: 250px;            /* or whatever height fits your design */
-  object-fit: cover;        /* fills the box, crops if needed */
-  border-radius: 8px;       /* optional: rounded corners */
+  height: 250px;            
+  object-fit: cover;        
+  border-radius: 8px;      
 }
 
 
@@ -30,12 +29,12 @@
 }
 
 .catalog-card .card-img.contain {
-  object-fit: contain;      /* shows the whole photo, may leave empty space */
-  background-color: #f8f9fa; /* neutral background for empty space */
+  object-fit: contain;      
+  background-color: #f8f9fa; 
 }
 
 
-/* Overlay buttons */
+
 .catalog-card .product-overlay {
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -64,7 +63,7 @@
   background-color: #28a745;
 }
 
-/* Card body */
+
 .catalog-card .card-body {
   flex-grow: 1;
   text-align: center;
@@ -90,7 +89,7 @@
   color: #555;
 }
 
-/* Responsive tweaks */
+
 @media (max-width: 768px) {
   .catalog-card .card-img {
     height: 200px;
@@ -107,14 +106,14 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #000000;
-  margin-bottom: 0; /* remove Bootstrap heading margin */
+  margin-bottom: 0; 
 }
 
 .catalog-card .catalog-price {
   font-size: 1rem;
   font-weight: 500;
   color: #555;
-  margin: 0; /* ensures no extra space below */
+  margin: 0; 
 }
 
 .catalog-card .catalog-price {

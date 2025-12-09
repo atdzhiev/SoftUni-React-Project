@@ -11,7 +11,7 @@ export const useForm = (initialValues, onSubmitHandler, { resetOnSubmit = true }
   }));
   };
 
-  // Nested/array fields
+  
   const setFieldValue = (path, value) => {
     setValues((state) => {
       const newState = { ...state };

@@ -1,4 +1,4 @@
-/* Catalog wrapper */
+
 .catalog-wrapper {
   max-width: 1400px;
   margin: 0 auto;
@@ -7,7 +7,7 @@
   color: #333;
 }
 
-/* Sidebar */
+
 .catalog-sidebar {
   background: #f9f9f9;
   border: 1px solid #e0e0e0;
@@ -21,17 +21,17 @@
   font-weight: 700;
   margin-bottom: 1rem;
   font-size: 1rem;
-  color: #289aa7; /* emerald accent */
+  color: #289aa7;
   text-transform: uppercase;
 }
 .catalog-products .catalog-card h5 a,
 .catalog-products .catalog-card .catalog-title a {
-  color: #06060a !important;   /* force emerald green */
-  text-decoration: none;       /* remove underline */
+  color: #06060a !important;  
+  text-decoration: none;       
 }
 
 
-/* Category list refined style */
+
 .catalog-sidebar ul,
 .catalog-sidebar .category-list {
   list-style: none;
@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-/* Sort bar */
+
 .catalog-sort {
   font-size: 0.95rem;
   color: #555;
@@ -70,7 +70,7 @@
   margin-bottom: 1rem;
 }
 
-/* Products grid */
+
 .catalog-products {
   margin-top: 2rem;
 }
@@ -79,7 +79,6 @@
   display: flex;
 }
 
-/* Product card aligned with homepage featured-card */
 .catalog-products .catalog-card {
   background: #fff;
   border-radius: 12px;
@@ -99,7 +98,7 @@
   margin-bottom: 1rem;
 }
 
-/* Card body */
+
 .catalog-products .catalog-card .card-body {
   padding: 1rem;
   text-align: center;
@@ -121,14 +120,14 @@
 
 .catalog-products .catalog-card .price,
 .catalog-products .catalog-card .catalog-price {
-  color: #28a745; /* emerald accent for price */
+  color: #28a745; 
   font-weight: 700;
   font-size: 1.2rem !important;
   margin: 0;
   line-height: 1.2;
 }
 
-/* Empty state */
+
 .catalog-empty {
   text-align: center;
   color: #6c757d;
@@ -137,7 +136,7 @@
   font-size: 1rem;
 }
 
-/* Pagination */
+
 .catalog-pagination {
   margin-top: 2rem;
 }
@@ -162,9 +161,9 @@
   border-color: #28a745;
 }
 
-/* Sidebar fixed width */
+
 .catalog-sidebar {
-  flex: 0 0 220px;   /* fixed width */
+  flex: 0 0 220px;   
   max-width: 220px;
   background: #f9f9f9;
   border: 1px solid #e0e0e0;
@@ -173,7 +172,7 @@
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
-/* Main content */
+
 .catalog-main {
   flex-grow: 1;
 }

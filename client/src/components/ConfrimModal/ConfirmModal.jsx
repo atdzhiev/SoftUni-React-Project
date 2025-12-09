@@ -1,5 +1,5 @@
 
-import "./ConfirmModal.css"; // optional external stylesheet
+import "./ConfirmModal.css"; 
 
 function ConfirmModal({ open, message, onConfirm, onCancel }) {
   if (!open) return null;
@@ -9,7 +9,7 @@ function ConfirmModal({ open, message, onConfirm, onCancel }) {
       <div className="modal-box greenish" onClick={(e) => e.stopPropagation()}>
         <p>{message}</p>
         <div className="modal-actions">
-          {/* Confirm button on the LEFT */}
+        
           <button onClick={onConfirm} className="btn-confirm">Confirm</button>
           <button onClick={onCancel} className="btn-cancel">Cancel</button>
         </div>

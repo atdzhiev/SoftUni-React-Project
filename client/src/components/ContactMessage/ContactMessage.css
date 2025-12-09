@@ -1,7 +1,7 @@
 .contactmessage-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.2); /* subtle backdrop */
+  background-color: rgba(0,0,0,0.2); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,15 +38,15 @@
 }
 
 .btn-cancel {
-  background-color: #ccc;   /* solid background */
+  background-color: #ccc;   
   color: #333;
   border: none;
-  padding: 10px 20px;       /* ensures background covers around text */
+  padding: 10px 20px;       
   border-radius: 4px;
   cursor: pointer;
-  display: inline-block;    /* makes background wrap correctly */
-  text-align: center;       /* centers text inside */
-  min-width: 80px;          /* optional: consistent width */
+  display: inline-block;    
+  text-align: center;      
+  min-width: 80px;        
 }
 
 .btn-cancel:hover {

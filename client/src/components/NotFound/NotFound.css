@@ -3,13 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5f6f4; /* soft gray-green background */
+  background: #f5f6f4; 
   font-family: "Poppins", sans-serif;
 }
 
 .nf-card {
   background: #ffffff;
-  border: 1px solid #d9dedb; /* light sage border */
+  border: 1px solid #d9dedb; 
   border-radius: 12px;
   padding: 2rem;
   text-align: center;
@@ -20,7 +20,7 @@
 .nf-code {
   font-size: 3rem;
   font-weight: 700;
-  color: #6b8f71; /* muted olive green */
+  color: #6b8f71; 
   margin-bottom: 0.5rem;
 }
 
@@ -45,12 +45,12 @@
 }
 
 .nf-primary {
-  background: #6b8f71; /* sage green */
+  background: #6b8f71; 
   color: #fff;
 }
 
 .nf-primary:hover {
-  background: #4e6b52; /* darker olive */
+  background: #4e6b52; 
 }
 
 .nf-outline {
