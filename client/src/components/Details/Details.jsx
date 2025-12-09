@@ -153,7 +153,7 @@ const Details = () => {
               {product.brand && (
                 <p className="product-brand">Brand: {product.brand}</p>
               )}
-              <p className="product-price">{product.price} BGN</p>
+              <p className="product-price">{product.price} лв.</p>
               <div className="product-description-container">
                   <h5 className="section-title"></h5>
                   <ul className="product-description-list">

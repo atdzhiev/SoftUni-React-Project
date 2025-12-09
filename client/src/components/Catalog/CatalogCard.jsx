@@ -80,7 +80,7 @@ const CatalogCard = ({ _id, title, price, images, mainImageIndex }) => {
         <Link to={`/products/details/${_id}`} className="h3 text-decoration-none">
           {title}
         </Link>
-        <p className="catalog-price mb-0">{Number(price)} BGN</p>
+        <p className="catalog-price mb-0">{Number(price)} лв.</p>
       </div>
     </div>
   );
