@@ -109,8 +109,9 @@ export const ProductsProvider = ({ children }) => {
         if (Object.values(data).includes("")) {
           throw new Error("All fields are required!");
         }
-        const newProduct = await productsService.create(data);
-        setProducts((state) => [...state, newProduct]);
+        await productsService.create(data);
+        const refreshed = await productsService.getAllByPage(page);
+        setProducts(refreshed);
 
         const all = await productsService.getAll();
         const count = all.length;
