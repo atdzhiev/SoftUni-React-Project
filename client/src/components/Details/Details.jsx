@@ -45,7 +45,7 @@ const Details = () => {
     return (
       <div className="container py-5">
         <ErrorContainer />
-        <p>Loading design...</p>
+        <p>Loading product...</p>
       </div>
     );
   } 
@@ -153,7 +153,7 @@ const Details = () => {
               {product.brand && (
                 <p className="product-brand">Brand: {product.brand}</p>
               )}
-              <p className="product-price">{product.price} лв.</p>
+              <p className="product-price">{product.price.toFixed(2)} лв.</p>
               <div className="product-description-container">
                   <h5 className="section-title"></h5>
                   <ul className="product-description-list">
