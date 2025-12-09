@@ -1,6 +1,6 @@
 const request = async (method, url, data) => {
     try {
-        const baseUrl = "http://localhost:3030";
+        const baseUrl = import.meta.env.VITE_API_URL;
 
         const options = {};
 
