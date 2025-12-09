@@ -1,4 +1,4 @@
-import "./WishlistDrawer.css";
+import "./WishListDrawer.css";
 
 const WishlistProduct = ({
   product,

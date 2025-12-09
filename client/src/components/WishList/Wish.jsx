@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import WishlistProduct from "./WishlistProduct";
 import ConfirmModal from "../ConfrimModal/ConfirmModal";
 import ErrorContainer from "../Error/ErrorContainer";
-import "./WishlistDrawer.css";
+import "./WishListDrawer.css";
 
 const WishlistDrawer = ({ onClose }) => {
   const { loves, onLoveDelete } = useContext(LovesContext);
