@@ -1349,151 +1349,356 @@
     	}
     };
     var seedData = {
-        products:{
-
+        products: {
+        "Product_1":  {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Faber-Castell Pen Poly Ball XB, automatic, light pink',
+            brand: 'Faber-Castell',
+            price: 11.98,
+            pieces: '5',
+            category: 'pen',
+            description: 'Ergonomic triangular form that helps to write without fatigue.\n' +
+                'Body cover preventing slippage.\n' +
+                'Ink document proof.\n' +
+                'High capacity XB filler.\n' +
+                'Body color: light pink.\n' +
+                'Ink color: blue.\n' +
+                'Practical metal clip.\n' +
+                'Dimensions: 133 x 17 x 13 mm.\n' +
+                'Logo: 40 x 5 mm.\n' +
+                'Applied branding technology: digital printing.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1005120487_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1005120487_23/mainMediumImage'
+            ],
+            specifications: [
+                { key: 'Writing colour', value: 'Blue' },
+                { key: 'Replaceable filler', value: 'Yes' },
+                { key: 'Rubber grip zone', value: 'Yes' }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765197825498,
+            _id: '42f1c762-5b8e-4d51-bcfe-b34bb6970aef'
+            },
+        "Product_2": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Navigator Copy paper Universal, A4, 500 sheets',
+            brand: 'Navigator',
+            price: 11.99,
+            pieces: '10',
+            category: 'paper',
+            description: 'Increased efficiency and multifunctionality.\n' +
+                '99.99 percent reduction in paper congestion.\n' +
+                'Silk smooth surface.\n' +
+                '100% warranty for use with all printers and copiers.\n' +
+                'More printed sheets with the same tape.\n' +
+                'Made with attention to the environment through reduced use of wood, water, energy and other resources.\n' +
+                'Made in Portugal.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1505100915_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1505100915_2/mainMediumImage'
+            ],
+            specifications: [
+                { key: 'Weight [g/m2]', value: '80' },
+                { key: 'Format', value: 'A4' },
+                { key: 'Dimensions (L x W) [mm]', value: '297 x 210' },
+                { key: 'Surface', value: 'Smooth' }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765198057973,
+            _id: '3924a145-e344-4d7c-9b9c-6e8cfe6f125a'
+            },
+        "Product_3": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Navigator Copy paper Colour Documents, A4, 120 g/m2, 250 sheets',
+            brand: 'Navigator',
+            price: 18.99,
+            pieces: '49',
+            category: 'paper',
+            description: 'Increased efficiency and multifunctionality.\n' +
+                '99.99 percent reduction in paper congestion.\n' +
+                'Silk smooth surface.\n' +
+                '100% warranty for use with all printers and copiers.\n' +
+                'More printed sheets with the same tape.\n' +
+                'Made with attention to the environment through reduced use of wood, water, energy and other resources.\n' +
+                'Made in Portugal.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1505100463_1/mainLargeImage'
+            ],
+            specifications: [
+                { key: 'Weight [g/m2]', value: '120' },
+                { key: 'Format', value: 'A4' },
+                { key: 'Thickness [mm]', value: '135 mm' },
+                {
+                key: 'Manufactured without the use of elemental chlorine (ECF)',
+                value: ' Yes'
+                }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765198298898,
+            _id: '9e4b612a-c6ad-4ce0-8c63-06eddf2463fe'
+            },
+        "Product_4": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Filofax Notebook Moonlight, A5, black',
+            brand: 'Filofax',
+            price: 33.89,
+            pieces: '4',
+            category: 'notebook',
+            description: 'Notebooks are designed to add, move or remove pages without having to tear them up.\n' +
+                'Color: black with gold and white elements.\n' +
+                'Dimensions: A5, 16.3 x 21.4 cm.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1570180173_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1570180173_2/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1570180173_3/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1570180173_4/mainMediumImage'
+            ],
+            specifications: [
+                { key: 'Paper grammage [g/m2]', value: '100' },
+                { key: 'Sheets [pcs.]', value: '56' },
+                { key: 'Grid refining', value: 'Wide rows' }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765200422918,
+            _id: '37a6ccbe-6e63-493b-b05d-2baf8c270f22'
+            },
+        "Product_5": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Paperblanks Notebook Black Moroccan, Midi, 88 sheets',
+            brand: 'Paperblanks',
+            price: 45.35,
+            pieces: '0',
+            category: 'notebook',
+            description: ' Number of pages: 176.\n' +
+                '       Resistant FSC paper (100 g/m2) without acid content.\n' +
+                '       Routing: broad lines.\n' +
+                '       Paper color: white.\n' +
+                '       Soft and flexible cover with decorative elements.\n' +
+                '       With a separate booking tape.\n' +
+                '       Shaping of the book body using filament seams and glue.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1595140172_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1595140172_2/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1595140172_3/mainMediumImage'
+            ],
+            specifications: [],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765201140413,
+            _id: '14d8eaad-a170-478d-8787-0b1a08b7b308'
+            },
+        "Product_6": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Faber-Castell Colored pencils Polychromos, 36 colors',
+            brand: 'Faber-Castell',
+            price: 153.9,
+            pieces: '0',
+            category: 'pencils',
+            description: 'Thickness of graphite 3.8 mm.\n' +
+                'Soft, bright colors.\n' +
+                'High quality, acid-free pigments in bright colors, unrivalled resistance to light.\n' +
+                'Waterproof and unscathed.\n' +
+                'High break resistance due to the bonding process with protective coating (SV).\n' +
+                'Box of 36 pencils.\n' +
+                'Pencils are available individually and in different combinations.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1015120165_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1015120165_21/mainMediumImage'
+            ],
+            specifications: [
+                { key: 'Type', value: 'Colored' },
+                { key: 'Pack quantity [pcs.]', value: '36' },
+                { key: 'Pencil sharpener included', value: 'No' }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765201330176,
+            _id: 'e66db1ac-1621-43ae-9560-0ed0eb96e8dd'
+            },
+        "Product_7": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Faber-Castell Pitt Artist Pen markers, 8 colors, Manga Set',
+            brand: 'Faber-Castell',
+            price: 53.47,
+            pieces: '7',
+            category: 'markers',
+            description: 'The ink paintings have a centuries-old artistic tradition. They have always been an interesting expression tool for artists. The technique gives the drawings character and endurance. The style can be combined with many other methods of painting. For this reason Faber-Castell combines their advantages to create colorful plot lines.\n' +
+            'This set, developed by professional illustrators will immerse you in a new world full of superpowers!\n',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1010180115_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1010180115_2/mainMediumImage'
+            ],
+            specifications: [],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765201611712,
+            _id: '513bc961-18fd-4b55-a9aa-0b6326ab0898'
+            },
+        "Product_8": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Correction tape, width 5 mm, length 8 m',
+            brand: 'Stanger ',
+            price: 7.8,
+            pieces: '49',
+            category: 'correlators',
+            description: 'Cover tape suitable for plain, copying and fax paper.\n' +
+                'Covers a line of text with one movement.\n' +
+                'Clean and dry correction; immediately after correction can be written.\n' +
+                "There's no evidence of photocopying.\n" +
+                'Width: 5 mm.\n' +
+                'Length: 8 m.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1020140020_1/mainMediumImage'
+            ],
+            specifications: [],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765201916314,
+            _id: '4cdf8220-f52e-4a23-8679-4eaa32a3f0b8'
+            },
+        "Product_9": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Flipchart, 70 x 100 cm, magnetic, with arms',
+            brand: 'Office 1',
+            price: 203.56,
+            pieces: '3',
+            category: 'presentation',
+            description: 'Easily flipchart with magnetic coating and pulling shoulders.\n' +
+                'Light aluminum frame.\n' +
+                'Ability to adjust height and slope.\n' +
+                'Ideal for trainings, presentations, conferences, etc. for large daily loads in conference halls, training centers, schools and universities.\n' +
+                'The two arms allow the printed sheets to move and remain visible from the audience.\n' +
+                'Board size: 70 x 100 cm.\n' +
+                'Practical marker holder.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1077100012_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1077100012_2/mainMediumImage'
+            ],
+            specifications: [
+                { key: 'Magnetic surface', value: 'Yes' },
+                { key: 'Adjustable height', value: 'Yes' }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765202079571,
+            _id: '0b2388d5-56cf-4f51-b782-96897c8ff40d'
+            },
+        "Product_10":  {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Self-adhesive labels, A4, 105 x 70 mm, 8 per sheet, 100 sheets',
+            brand: 'Top Stick',
+            price: 35.6,
+            pieces: '9',
+            category: 'adhesive',
+            description: 'Dimensions: 105 x 70 mm.\n' +
+                'In the kit you will find 100 sheets with 8 labels.\n' +
+                'They were made in Germany.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1540100193_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1540100193_2/mainMediumImage'
+            ],
+            specifications: [
+                { key: 'Labels per sheet [pcs.]', value: '8' },
+                { key: 'Shape', value: 'Rectangular' }
+            ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765202274995,
+            _id: 'a5dc9645-df7f-4bbf-9126-fc77946e993f'
+            },
+        "Product_11":  {
+            title: 'Urban Muted Black GT Fountain Pen + Ballpoint Pen in a Gift Box ',
+            brand: 'Parker',
+            price: 207.89,
+            pieces: '3',
+            category: 'pen',
+            description: 'Fountain Pen Eye catching and dynamic, PARKER Urban Fountain Pens deliver a boldly modern look that dares to be noticed. With its curved silhouette, you enjoy a perfectly balanced writing experience that complements your style. This PARKER fountain pen features a muted black lacquer finish accented with striking gold finish trim. The durable nib is crafted from stainless steel and shaped to provide the optimal writing angle. ',
+            images: [
+                'https://www.parkershop.eu/files/zdjecia/produkty_new/1931593_2143640_2180602_l.jpg',
+                'https://www.parkershop.eu/files/zdjecia/galeria/r_1931593_b.jpg',
+                'https://www.parkershop.eu/files/zdjecia/galeria/g_1931593_b.jpg'
+            ],
+            specifications: [
+                { key: 'Series', value: 'Urban' },
+                { key: 'Finish with', value: 'GT' },
+                { key: 'Style', value: 'Classic' }
+            ],
+            options: [],
+            mainImageIndex: 0
+            },
+        "Product_12": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Pencil Jumbo Grip 2001, graphite, B, blue',
+            brand: 'Faber-Castell',
+            price: 5.7,
+            pieces: '18',
+            category: 'pencils',
+            description: 'High quality blackprint pencil Faber-Castell Grip 2001.\n' +
+                'Ergonomic triangular shape.\n' +
+                'Soft flu zone.\n' +
+                'The body and the dots are colored using a special water-based paint technology.\n' +
+                'Easy sharpening.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1015100064_1/mainMediumImage'
+            ],
+            specifications: [ { key: 'Writing hardness', value: 'B' } ],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765203332113,
+            _id: 'fdc17cc1-cbe3-4f94-a643-3b734b4d00af'
+            },
+        "Product_13": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'IM RITUALS TURQUOISE GREEN Ballpoint Pen',
+            brand: 'Parker',
+            price: 120.74,
+            pieces: '1',
+            category: 'pen',
+            description: 'The beautifully crafted Parker IM Writing Rituals collection has been designed with the writer’s wellness routines in mind. This pen’s weight, aesthetic, in-hand feel and smooth ink delivery all add an element of luxury and focus to writing practices. Whether journaling, forward planning, creative writing or taking notes, Parker IM is perfect for those wellness moments. ',
+            images: [
+                'https://www.parkershop.eu/files/zdjecia/produkty_new/2203894_165BLUE_l.jpg',
+                'https://www.parkershop.eu/files/zdjecia/galeria/g_2203894_165BLUE_2_b.jpg',
+                'https://www.parkershop.eu/files/zdjecia/galeria/2203894_2_b.jpg'
+            ],
+            specifications: [],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765203161243,
+            _id: 'f4b75a42-c7a7-4d70-aab1-0d60c10713f9'
+            },
+        "Product_14": {
+            _ownerId: '60f0cf0b-34b0-4abd-9769-8c42f830dffc',
+            title: 'Marker Pitt Artist Pen, round, 1.5 mm, metallic, blue',
+            brand: 'Faber-Castell',
+            price: 8.29,
+            pieces: '9',
+            category: 'markers',
+            description: 'Stylish Faber-Castel Pitt Artist, no need to pump and shake.\n' +
+                'It has high stamina in the presence of sunlight.\n' +
+                'It was manufactured without odors and acids and with neutral PH.\n' +
+                'Provides high opaque writing, even on dark paper.\n' +
+                'The width of the pistachio is 1,5 mm.',
+            images: [
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1005200069_1/mainMediumImage',
+                'https://office1.bg/cdn-cgi/imagedelivery/ObffgCV-C0AAn5AgP1N3FA/0_1005200069_2/mainMediumImage' 
+            ],
+            specifications: [],
+            options: [],
+            mainImageIndex: 0,
+            _createdOn: 1765203558902,
+            _id: 'e42e1811-2e4a-4e1d-97b6-c94c95ee7741'
+            }      
+                        
         },
         loves:{
-
         },
         cart:{
-
         },
-    	likes: {
-    	},
-    	ideas: {
-    		"833e0e57-71dc-42c0-b387-0ce0caf5225e": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Best Pilates Workout To Do At Home",
-    			description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima possimus eveniet ullam aspernatur corporis tempore quia nesciunt nostrum mollitia consequatur. At ducimus amet aliquid magnam nulla sed totam blanditiis ullam atque facilis corrupti quidem nisi iusto saepe, consectetur culpa possimus quos? Repellendus, dicta pariatur! Delectus, placeat debitis error dignissimos nesciunt magni possimus quo nulla, fuga corporis maxime minus nihil doloremque aliquam quia recusandae harum. Molestias dolorum recusandae commodi velit cum sapiente placeat alias rerum illum repudiandae? Suscipit tempore dolore autem, neque debitis quisquam molestias officia hic nesciunt? Obcaecati optio fugit blanditiis, explicabo odio at dicta asperiores distinctio expedita dolor est aperiam earum! Molestias sequi aliquid molestiae, voluptatum doloremque saepe dignissimos quidem quas harum quo. Eum nemo voluptatem hic corrupti officiis eaque et temporibus error totam numquam sequi nostrum assumenda eius voluptatibus quia sed vel, rerum, excepturi maxime? Pariatur, provident hic? Soluta corrupti aspernatur exercitationem vitae accusantium ut ullam dolor quod!",
-    			img: "./images/best-pilates-youtube-workouts-2__medium_4x3.jpg",
-    			_createdOn: 1615033373504,
-    			_id: "833e0e57-71dc-42c0-b387-0ce0caf5225e"
-    		},
-    		"247efaa7-8a3e-48a7-813f-b5bfdad0f46c": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "4 Eady DIY Idea To Try!",
-    			description: "Similique rem culpa nemo hic recusandae perspiciatis quidem, quia expedita, sapiente est itaque optio enim placeat voluptates sit, fugit dignissimos tenetur temporibus exercitationem in quis magni sunt vel. Corporis officiis ut sapiente exercitationem consectetur debitis suscipit laborum quo enim iusto, labore, quod quam libero aliquid accusantium! Voluptatum quos porro fugit soluta tempore praesentium ratione dolorum impedit sunt dolores quod labore laudantium beatae architecto perspiciatis natus cupiditate, iure quia aliquid, iusto modi esse!",
-    			img: "./images/brightideacropped.jpg",
-    			_createdOn: 1615033452480,
-    			_id: "247efaa7-8a3e-48a7-813f-b5bfdad0f46c"
-    		},
-    		"b8608c22-dd57-4b24-948e-b358f536b958": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Dinner Recipe",
-    			description: "Consectetur labore et corporis nihil, officiis tempora, hic ex commodi sit aspernatur ad minima? Voluptas nesciunt, blanditiis ex nulla incidunt facere tempora laborum ut aliquid beatae obcaecati quidem reprehenderit consequatur quis iure natus quia totam vel. Amet explicabo quidem repellat unde tempore et totam minima mollitia, adipisci vel autem, enim voluptatem quasi exercitationem dolor cum repudiandae dolores nostrum sit ullam atque dicta, tempora iusto eaque! Rerum debitis voluptate impedit corrupti quibusdam consequatur minima, earum asperiores soluta. A provident reiciendis voluptates et numquam totam eveniet! Dolorum corporis libero dicta laborum illum accusamus ullam?",
-    			img: "./images/dinner.jpg",
-    			_createdOn: 1615033491967,
-    			_id: "b8608c22-dd57-4b24-948e-b358f536b958"
-    		}
-    	},
-    	catalog: {
-    		"53d4dbf5-7f41-47ba-b485-43eccb91cb95": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			make: "Table",
-    			model: "Swedish",
-    			year: 2015,
-    			description: "Medium table",
-    			price: 235,
-    			img: "./images/table.png",
-    			material: "Hardwood",
-    			_createdOn: 1615545143015,
-    			_id: "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
-    		},
-    		"f5929b5c-bca4-4026-8e6e-c09e73908f77": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Sofa",
-    			model: "ES-549-M",
-    			year: 2018,
-    			description: "Three-person sofa, blue",
-    			price: 1200,
-    			img: "./images/sofa.jpg",
-    			material: "Frame - steel, plastic; Upholstery - fabric",
-    			_createdOn: 1615545572296,
-    			_id: "f5929b5c-bca4-4026-8e6e-c09e73908f77"
-    		},
-    		"c7f51805-242b-45ed-ae3e-80b68605141b": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Chair",
-    			model: "Bright Dining Collection",
-    			year: 2017,
-    			description: "Dining chair",
-    			price: 180,
-    			img: "./images/chair.jpg",
-    			material: "Wood laminate; leather",
-    			_createdOn: 1615546332126,
-    			_id: "c7f51805-242b-45ed-ae3e-80b68605141b"
-    		}
-    	},
-    	teams: {
-    		"34a1cab1-81f1-47e5-aec3-ab6c9810efe1": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Storm Troopers",
-    			logoUrl: "/assets/atat.png",
-    			description: "These ARE the droids we're looking for",
-    			_createdOn: 1615737591748,
-    			_id: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1"
-    		},
-    		"dc888b1a-400f-47f3-9619-07607966feb8": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Team Rocket",
-    			logoUrl: "/assets/rocket.png",
-    			description: "Gotta catch 'em all!",
-    			_createdOn: 1615737655083,
-    			_id: "dc888b1a-400f-47f3-9619-07607966feb8"
-    		},
-    		"733fa9a1-26b6-490d-b299-21f120b2f53a": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Minions",
-    			logoUrl: "/assets/hydrant.png",
-    			description: "Friendly neighbourhood jelly beans, helping evil-doers succeed.",
-    			_createdOn: 1615737688036,
-    			_id: "733fa9a1-26b6-490d-b299-21f120b2f53a"
-    		}
-    	},
-    	members: {
-    		"cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616236790262,
-    			_updatedOn: 1616236792930
-    		},
-    		"61a19986-3b86-4347-8ca4-8c074ed87591": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237188183,
-    			_updatedOn: 1616237189016
-    		},
-    		"8a03aa56-7a82-4a6b-9821-91349fbc552f": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "733fa9a1-26b6-490d-b299-21f120b2f53a",
-    			status: "member",
-    			_createdOn: 1616237193355,
-    			_updatedOn: 1616237195145
-    		},
-    		"9be3ac7d-2c6e-4d74-b187-04105ab7e3d6": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237231299,
-    			_updatedOn: 1616237235713
-    		},
-    		"280b4a1a-d0f3-4639-aa54-6d9158365152": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237257265,
-    			_updatedOn: 1616237278248
-    		},
-    		"e797fa57-bf0a-4749-8028-72dba715e5f8": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616237272948,
-    			_updatedOn: 1616237293676
-    		}
-    	}
     };
     var rules$1 = {
     	users: {
